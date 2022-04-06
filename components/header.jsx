@@ -77,7 +77,7 @@ export default function Header() {
               order: { xs: '3', sm: '0' },
             }}
           >
-            <Typography variant="h3">Julfour</Typography>
+            <Typography variant="h3">JULFOUR</Typography>
             <Typography variant="h4">JEWELERY</Typography>
           </Box>
           <Grid
