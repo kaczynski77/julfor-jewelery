@@ -126,7 +126,9 @@ export default function Header() {
         <Grid
           container
           direction="row"
+          width={3 / 4}
           sx={{
+            margin: '0 auto',
             justifyContent: 'space-between',
             display: { xs: 'none', xl: 'flex' },
           }}

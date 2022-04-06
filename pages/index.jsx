@@ -18,6 +18,16 @@ import { indigo } from '@mui/material/colors';
 import Image from 'next/image';
 
 export default function Home() {
+  const bannerData = [
+    {
+      name: 'JULFOUR SPRING COLLECTION',
+      description: 'Новая линейка украшений',
+      image: '/images/banner.jpg',
+    },
+  ];
+
+  const bname = bannerData[0].name;
+
   const categoryData = [
     { name: 'Cерьги', href: '/earrings', image: '/images/earrings.jpg' },
     {
@@ -98,7 +108,6 @@ export default function Home() {
                             display: 'flex',
                             height: '100%',
                             textAlign: 'center',
-
                             alignItems: 'center',
                             justifyContent: 'center',
                             opacity: '1',
@@ -113,6 +122,7 @@ export default function Home() {
                           </Typography>
                         </Box>
                       </Box>
+
                       <Box
                         sx={{
                           position: 'absolute',
@@ -135,6 +145,65 @@ export default function Home() {
                   </Link>
                 </Grid>
               ))}
+              <Grid
+                item
+                xs={12}
+                lg={6}
+                sx={{
+                  justifyContent: 'center',
+                  marginTop: 1,
+                  padding: { sx: 0 },
+                }}
+              >
+                <Card sx={{ position: 'relative', marginTop: 2 }}>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      width: '100%',
+                      height: '100%',
+                      zIndex: 2,
+                      opacity: '1',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        height: '100%',
+                        textAlign: 'center',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        opacity: '1',
+                      }}
+                    >
+                      {' '}
+                      <Typography
+                        variant="h4"
+                        color="white"
+                        sx={{ textTransform: 'uppercase' }}
+                      >
+                        JULFOUR SPRING COLLECTION
+                      </Typography>
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          width: '100%',
+                          height: '100%',
+                          backgroundColor: indigo[800],
+                          opacity: '0.1',
+                          zIndex: 9999,
+                        }}
+                      ></Box>
+                    </Box>
+                  </Box>
+                  <CardMedia
+                    component="img"
+                    height="345"
+                    image={bannerData[0].image}
+                    alt="Paella dish"
+                    sx={{ opacity: '0.99' }}
+                  />
+                </Card>
+              </Grid>
             </Grid>
           </Box>
         </Box>
