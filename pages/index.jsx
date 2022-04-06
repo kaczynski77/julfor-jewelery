@@ -14,6 +14,7 @@ import {
 import Button from '@mui/material/Button';
 import Layout from '../components/layout';
 import { grey } from '@mui/material/colors';
+import { purple } from '@mui/material/colors';
 import Image from 'next/image';
 
 export default function Home() {
@@ -85,26 +86,42 @@ export default function Home() {
                     <Card sx={{ position: 'relative' }}>
                       <Box
                         sx={{
-                          margin: '0 auto',
                           position: 'absolute',
-                          top: '50%',
-                          left: '50%',
-                          transform: 'translate(-50%, -50%)',
+                          width: '100%',
+                          height: '100%',
+                          zIndex: 2,
+                          opacity: '1',
                         }}
                       >
                         <Box
                           sx={{
                             display: 'flex',
-
-                            height: 'inherit',
+                            height: '100%',
                             textAlign: 'center',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            opacity: '1',
                           }}
                         >
-                          <Typography variant="h5" color="white">
+                          <Typography
+                            variant="h4"
+                            color={grey[50]}
+                            sx={{ textTransform: 'uppercase' }}
+                          >
                             {data.name}
                           </Typography>
                         </Box>
                       </Box>
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          width: '100%',
+                          height: '100%',
+                          backgroundColor: purple[300],
+                          opacity: '0.2',
+                          zIndex: 1,
+                        }}
+                      ></Box>
 
                       <CardMedia
                         component="img"

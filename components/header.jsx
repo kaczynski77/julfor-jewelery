@@ -10,6 +10,7 @@ import {
   Link,
 } from '@mui/material';
 import App from '../pages/_app';
+import { grey } from '@mui/material/colors';
 
 export default function Header() {
   const linksData = [
@@ -111,7 +112,10 @@ export default function Header() {
           {linksData.map((data) => (
             <Grid item xs="auto">
               <Box>
-                <Link href={data.href} color="inherit">
+                <Link
+                  sx={{ textDecoration: 'none', color: grey[600] }}
+                  href={data.href}
+                >
                   {data.name}
                 </Link>
               </Box>
