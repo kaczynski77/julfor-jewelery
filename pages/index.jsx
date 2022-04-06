@@ -1,9 +1,26 @@
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, Grid, Link, Card } from '@mui/material';
 import Button from '@mui/material/Button';
 import Layout from '../components/layout';
 import { grey } from '@mui/material/colors';
+import Image from 'next/image';
 
 export default function Home() {
+  const categoryData = [
+    { name: 'Cерьги', href: '/earrings', image: '/./images/earrings.jpg' },
+    {
+      name: 'Колье/Подвески',
+      href: '/pendants',
+      image: '/images/earrings.jpg',
+    },
+    { name: 'Браслеты', href: '/bracers', image: '/images/earrings.jpg' },
+    { name: 'Кольца', href: '/rings', image: '/images/earrings.jpg' },
+    { name: 'Акссесуары', href: '/accessories', image: '/images/earrings.jpg' },
+    {
+      name: 'Подарочные сертификаты',
+      href: '/accessories',
+      image: '/images/earrings.jpg',
+    },
+  ];
   return (
     <Layout>
       <Container xs={{ display: 'none' }}>
@@ -23,6 +40,33 @@ export default function Home() {
             современные тренды и высокое качество. Все это помогает вам создать
             женственный образ.
           </Typography>
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              justifyContent: 'space-between',
+              marginTop: 6,
+            }}
+          >
+            {categoryData.map((data) => (
+              <Grid item xs={12} sm={6} sx={{ justifyContent: 'center' }}>
+                <Card
+                  sx={{
+                    height: 350,
+                    width: 300,
+                    margin: '0 auto',
+                  }}
+                >
+                  <Image height="350" width="350" src={data.image}></Image>
+                  <Box>
+                    <Link href={data.href} color="inherit">
+                      {data.name}
+                    </Link>
+                  </Box>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
       </Container>
     </Layout>
