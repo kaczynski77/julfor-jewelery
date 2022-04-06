@@ -1,4 +1,12 @@
-import { Container, Typography, Box, Grid, Link, Card } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  Link,
+  Card,
+  Paper,
+} from '@mui/material';
 import Button from '@mui/material/Button';
 import Layout from '../components/layout';
 import { grey } from '@mui/material/colors';
@@ -55,7 +63,7 @@ export default function Home() {
             {categoryData.map((data) => (
               <Grid item xs={12} lg={4} sx={{ justifyContent: 'center' }}>
                 <Link href={data.href} color="inherit">
-                  <Card
+                  <Paper
                     sx={{
                       height: 350,
                       width: 300,
@@ -66,7 +74,7 @@ export default function Home() {
                     <Box sx={{ marginTop: 1 }}>
                       <Typography variant="body">{data.name}</Typography>
                     </Box>
-                  </Card>
+                  </Paper>
                 </Link>
               </Grid>
             ))}
