@@ -86,7 +86,7 @@ export default function Header() {
             }}
           >
             <Typography variant="h3">JULFOUR</Typography>
-            <Typography variant="h4">JEWELERY</Typography>
+            <Typography variant="h4">JEWELRY</Typography>
           </Grid>
 
           <Grid
