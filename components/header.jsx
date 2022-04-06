@@ -106,7 +106,6 @@ export default function Header() {
           sx={{
             justifyContent: 'space-between',
             display: { xs: 'none', xl: 'flex' },
-            marginTop: 6,
           }}
         >
           {linksData.map((data) => (

@@ -68,35 +68,51 @@ export default function Home() {
               }}
             >
               {categoryData.map((data) => (
-                <Grid item xs={12} lg={6} sx={{ justifyContent: 'center' }}>
+                <Grid
+                  item
+                  xs={12}
+                  lg={6}
+                  sx={{ justifyContent: 'center', marginTop: 1 }}
+                >
                   <Link
-                    sx={{ textDecoration: 'none' }}
+                    sx={{
+                      textDecoration: 'none',
+                      width: 'inherit',
+                      height: 'inherit',
+                    }}
                     href={data.href}
                     color="inherit"
                   >
-                    <Card>
-                      <CardActions disableSpacing>
+                    <Card sx={{ position: 'relative' }}>
+                      <Box
+                        sx={{
+                          margin: '0 auto',
+                          position: 'absolute',
+                          top: '50%',
+                          left: '50%',
+                          transform: 'translate(-50%, -50%)',
+                        }}
+                      >
                         <Box
                           sx={{
-                            margin: '0 auto',
+                            display: 'flex',
+
+                            height: 'inherit',
+                            textAlign: 'center',
                           }}
                         >
-                          <Typography variant="h6">{data.name}</Typography>
+                          <Typography variant="h5" color="white">
+                            {data.name}
+                          </Typography>
                         </Box>
-                      </CardActions>
+                      </Box>
+
                       <CardMedia
                         component="img"
                         height="345"
                         image={data.image}
                         alt="Paella dish"
                       />
-                      <CardContent>
-                        <Typography variant="body2" color={grey[500]}>
-                          This impressive paella is a perfect party dish and a
-                          fun meal to cook together with your guests. Add 1 cup
-                          of frozen peas along with the mussels, if you like.
-                        </Typography>
-                      </CardContent>
                     </Card>
                   </Link>
                 </Grid>
