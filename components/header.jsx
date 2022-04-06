@@ -35,7 +35,7 @@ export default function Header() {
       <Box>
         <Box
           position="static"
-          sx={{ textAlign: 'center', paddingTop: 6, paddingBottom: 3 }}
+          sx={{ textAlign: 'center', paddingTop: 4, paddingBottom: 4 }}
         >
           <Box>
             <Typography>СКИДКА ПО ПРОМОКОДУ JUL5 5%</Typography>
@@ -73,7 +73,7 @@ export default function Header() {
             item
             sx={{
               padding: 3,
-              marginTop: { xs: 3 },
+              marginTop: { xs: 0 },
               width: '100%',
               maxWidth: '320px',
               display: 'flex',
