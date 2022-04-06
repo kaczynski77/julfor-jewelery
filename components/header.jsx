@@ -43,12 +43,17 @@ export default function Header() {
         </Box>
         <Grid
           container
-          sx={{ marginBottom: 6, width: '100', justifyContent: 'center' }}
+          sx={{
+            marginBottom: 6,
+            width: '100',
+            alignItems: 'center',
+            justifyContent: 'space-evenly',
+          }}
         >
           <Grid
             item
-            xs={4}
             sx={{
+              width: 1 / 3,
               display: 'flex',
               justifyContent: 'space-evenly',
               alignItems: 'center',
@@ -64,34 +69,36 @@ export default function Header() {
               <Typography>VK</Typography>
             </Box>
           </Grid>
-          <Box
+          <Grid
+            item
             sx={{
               border: '2px solid black',
-              padding: 2,
+              padding: 3,
+              marginTop: { xs: 3 },
 
+              width: { md: 1 / 3 },
               display: 'flex',
               flexDirection: 'column',
               justifyItems: 'center',
               alignItems: 'center',
 
-              order: { xs: '3', sm: '0' },
+              order: { xs: '3', md: '0' },
             }}
           >
             <Typography variant="h3">JULFOUR</Typography>
             <Typography variant="h4">JEWELERY</Typography>
-          </Box>
+          </Grid>
+
           <Grid
             item
-            xs={4}
             sx={{
-              display: 'flex',
-              justifyContent: 'space-evenly',
+              width: 1 / 3,
               alignItems: 'center',
+              justifyContent: 'center',
+              display: 'flex',
             }}
           >
-            <Box>
-              <Typography>+7 (995) 777-777</Typography>
-            </Box>
+            <Typography>+7 (995) 777-777</Typography>
           </Grid>
         </Grid>
         <Grid
