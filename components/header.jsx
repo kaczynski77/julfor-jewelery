@@ -97,7 +97,7 @@ export default function Header() {
               display: 'flex',
             }}
           >
-            <Typography>+7 (995) 777-777</Typography>
+            <Typography>+7 (995) 777-7777</Typography>
           </Grid>
         </Grid>
         <Grid
