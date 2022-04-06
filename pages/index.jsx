@@ -14,14 +14,14 @@ import {
 import Button from '@mui/material/Button';
 import Layout from '../components/layout';
 import { grey } from '@mui/material/colors';
-import { purple } from '@mui/material/colors';
+import { indigo } from '@mui/material/colors';
 import Image from 'next/image';
 
 export default function Home() {
   const categoryData = [
     { name: 'Cерьги', href: '/earrings', image: '/images/earrings.jpg' },
     {
-      name: 'Колье/Подвески',
+      name: 'Колье и Подвески',
       href: '/pendants',
       image: '/images/pendants.jpg',
     },
@@ -105,7 +105,7 @@ export default function Home() {
                         >
                           <Typography
                             variant="h4"
-                            color={grey[50]}
+                            color="white"
                             sx={{ textTransform: 'uppercase' }}
                           >
                             {data.name}
@@ -117,8 +117,8 @@ export default function Home() {
                           position: 'absolute',
                           width: '100%',
                           height: '100%',
-                          backgroundColor: purple[300],
-                          opacity: '0.2',
+                          backgroundColor: indigo[800],
+                          opacity: '0.25',
                           zIndex: 1,
                         }}
                       ></Box>

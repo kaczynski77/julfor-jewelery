@@ -7,7 +7,7 @@ import Header from './header';
 const Layout = ({ children }) => {
   return (
     <>
-      <Container lg>
+      <Container lg sx={{ padding: { xs: 0 } }}>
         <Header />
         <Container sx={{ minHeight: '80vh' }}>{children}</Container>
         <Footer />
