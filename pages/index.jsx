@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function Home() {
   const categoryData = [
-    { name: 'Cерьги', href: '/earrings', image: '/./images/earrings.jpg' },
+    { name: 'Cерьги', href: '/earrings', image: '/images/earrings.jpg' },
     {
       name: 'Колье/Подвески',
       href: '/pendants',
