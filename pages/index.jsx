@@ -6,10 +6,15 @@ export default function Home() {
   return (
     <Layout>
       <Container xs={{ display: 'none' }}>
-        <Box sx={{ paddingTop: { xs: 0, xl: 9 }, textAlign: 'center' }}>
+        <Box sx={{ paddingTop: { xs: 3, xl: 9 }, textAlign: 'center' }}>
           <Typography variant="h4">Украшения ручной работы</Typography>
         </Box>
-        <Box sx={{ paddingTop: { xs: 3, xl: 6 }, textAlign: 'center' }}>
+        <Box
+          sx={{
+            paddingTop: { xs: 3, xl: 6 },
+            textAlign: { xs: 'left', sm: 'center' },
+          }}
+        >
           <Typography variant="h6">
             Изящество, легкость, неповторимый стиль наших украшений. Самые
             современные тренды и высокое качество. Все это помогает вам создать

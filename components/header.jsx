@@ -75,8 +75,8 @@ export default function Header() {
               border: '2px solid black',
               padding: 3,
               marginTop: { xs: 3 },
-
-              width: { md: 1 / 3, xs: '100%' },
+              width: '100%',
+              maxWidth: '320px',
               display: 'flex',
               flexDirection: 'column',
               justifyItems: 'center',
@@ -107,6 +107,7 @@ export default function Header() {
           sx={{
             justifyContent: 'space-between',
             display: { xs: 'none', xl: 'flex' },
+            marginTop: 4,
           }}
         >
           {linksData.map((data) => (
