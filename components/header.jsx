@@ -72,7 +72,7 @@ export default function Header() {
           <Grid
             item
             sx={{
-              border: '2px solid black',
+              border: '1px solid black',
               padding: 3,
               marginTop: { xs: 3 },
               width: '100%',
