@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <Layout>
       <Container xs={{ display: 'none' }}>
-        <Box sx={{ paddingTop: { xs: 2, xl: 9 }, textAlign: 'center' }}>
+        <Box sx={{ paddingTop: { xs: 0, xl: 9 }, textAlign: 'center' }}>
           <Typography variant="h4">Украшения ручной работы</Typography>
         </Box>
         <Box sx={{ paddingTop: { xs: 3, xl: 6 }, textAlign: 'center' }}>
