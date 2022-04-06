@@ -26,6 +26,24 @@ export default function Home() {
     },
   ];
 
+  const servicesData = [
+    {
+      name: 'На заказ',
+      description: 'Создаём украшения по вашим эскизам или фото',
+      image: '/images/custom.jpg',
+    },
+    {
+      name: 'Реставрация',
+      description: 'Даём любимым украшения вторую жизнь',
+      image: '/images/restore.jpg',
+    },
+    {
+      name: 'Мастер классы',
+      description: 'Создаём украшения по вашим эскизам или фото',
+      image: '/images/pendants.jpg',
+    },
+  ];
+
   const bname = bannerData[0].name;
 
   const categoryData = [
@@ -52,7 +70,7 @@ export default function Home() {
     <Layout>
       <Container xs={{ display: 'none' }}>
         <Box sx={{ paddingTop: { xs: 0, xl: 2 }, textAlign: 'center' }}>
-          <Typography variant="h6" sx={{ textTransform: 'uppercase' }}>
+          <Typography variant="h4" sx={{ textTransform: 'uppercase' }}>
             украшения ручной работы
           </Typography>
         </Box>
@@ -155,7 +173,9 @@ export default function Home() {
                   padding: { sx: 0 },
                 }}
               >
-                <Card sx={{ position: 'relative', marginTop: 2 }}>
+                <Card
+                  sx={{ position: 'relative', marginTop: 4, marginBottom: 4 }}
+                >
                   <Box
                     sx={{
                       position: 'absolute',
@@ -176,13 +196,22 @@ export default function Home() {
                       }}
                     >
                       {' '}
-                      <Typography
-                        variant="h4"
-                        color="white"
-                        sx={{ textTransform: 'uppercase' }}
-                      >
-                        JULFOUR SPRING COLLECTION
-                      </Typography>
+                      <Box>
+                        <Typography
+                          variant="h4"
+                          color="white"
+                          sx={{ textTransform: 'uppercase' }}
+                        >
+                          JULFOUR SPRING COLLECTION
+                        </Typography>
+                        <Typography
+                          variant="h5"
+                          color="white"
+                          sx={{ textTransform: 'uppercase' }}
+                        >
+                          Новая линейка украшений
+                        </Typography>
+                      </Box>
                       <Box
                         sx={{
                           position: 'absolute',
@@ -206,6 +235,16 @@ export default function Home() {
               </Grid>
             </Grid>
           </Box>
+        </Box>
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
+            Хиты Продаж
+          </Typography>
+        </Box>
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
+            Дополнительные услуги
+          </Typography>
         </Box>
       </Container>
     </Layout>
