@@ -10,15 +10,19 @@ export default function Home() {
     {
       name: 'Колье/Подвески',
       href: '/pendants',
-      image: '/images/earrings.jpg',
+      image: '/images/pendants.jpg',
     },
-    { name: 'Браслеты', href: '/bracers', image: '/images/earrings.jpg' },
-    { name: 'Кольца', href: '/rings', image: '/images/earrings.jpg' },
-    { name: 'Акссесуары', href: '/accessories', image: '/images/earrings.jpg' },
+    { name: 'Браслеты', href: '/bracelets', image: '/images/bracelets.jpg' },
+    { name: 'Кольца', href: '/rings', image: '/images/rings.jpg' },
+    {
+      name: 'Акссесуары',
+      href: '/accessories',
+      image: '/images/accessories.jpg',
+    },
     {
       name: 'Подарочные сертификаты',
-      href: '/accessories',
-      image: '/images/earrings.jpg',
+      href: '/giftcard',
+      image: '/images/gifts.jpg',
     },
   ];
   return (
@@ -50,20 +54,20 @@ export default function Home() {
           >
             {categoryData.map((data) => (
               <Grid item xs={12} sm={6} sx={{ justifyContent: 'center' }}>
-                <Card
-                  sx={{
-                    height: 350,
-                    width: 300,
-                    margin: '0 auto',
-                  }}
-                >
-                  <Image height="350" width="350" src={data.image}></Image>
-                  <Box>
-                    <Link href={data.href} color="inherit">
-                      {data.name}
-                    </Link>
-                  </Box>
-                </Card>
+                <Link href={data.href} color="inherit">
+                  <Card
+                    sx={{
+                      height: 350,
+                      width: 300,
+                      margin: '0 auto',
+                    }}
+                  >
+                    <Image height="350" width="350" src={data.image}></Image>
+                    <Box sx={{ marginTop: 1 }}>
+                      <Typography variant="body">{data.name}</Typography>
+                    </Box>
+                  </Card>
+                </Link>
               </Grid>
             ))}
           </Grid>
