@@ -6,6 +6,10 @@ import {
   Link,
   Card,
   Paper,
+  CardMedia,
+  CardContent,
+  CardActions,
+  IconButton,
 } from '@mui/material';
 import Button from '@mui/material/Button';
 import Layout from '../components/layout';
@@ -36,7 +40,7 @@ export default function Home() {
   return (
     <Layout>
       <Container xs={{ display: 'none' }}>
-        <Box sx={{ paddingTop: { xs: 2, xl: 9 }, textAlign: 'center' }}>
+        <Box sx={{ paddingTop: { xs: 2, xl: 6 }, textAlign: 'center' }}>
           <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
             украшения ручной работы
           </Typography>
@@ -47,38 +51,58 @@ export default function Home() {
             textAlign: { xs: 'center', sm: 'center' },
           }}
         >
-          <Typography sx={{ color: grey[400] }} variant="overline">
+          <Typography sx={{ color: grey[500] }} variant="overline">
             Изящество, легкость, неповторимый стиль наших украшений. Самые
             современные тренды и высокое качество. Все это помогает вам создать
             женственный образ.
           </Typography>
-          <Grid
-            container
-            spacing={2}
-            sx={{
-              justifyContent: 'space-between',
-              marginTop: 3,
-            }}
-          >
-            {categoryData.map((data) => (
-              <Grid item xs={12} lg={4} sx={{ justifyContent: 'center' }}>
-                <Link href={data.href} color="inherit">
-                  <Paper
-                    sx={{
-                      height: 350,
-                      width: 300,
-                      margin: '0 auto',
-                    }}
+          <Box>
+            <Grid
+              container
+              spacing={1}
+              sx={{
+                marginTop: 3,
+                justifyContent: 'center',
+                alignItems: 'center',
+                margin: '0 auto',
+              }}
+            >
+              {categoryData.map((data) => (
+                <Grid item xs={12} lg={6} sx={{ justifyContent: 'center' }}>
+                  <Link
+                    sx={{ textDecoration: 'none' }}
+                    href={data.href}
+                    color="inherit"
                   >
-                    <Image height="350" width="350" src={data.image}></Image>
-                    <Box sx={{ marginTop: 1 }}>
-                      <Typography variant="body">{data.name}</Typography>
-                    </Box>
-                  </Paper>
-                </Link>
-              </Grid>
-            ))}
-          </Grid>
+                    <Card>
+                      <CardActions disableSpacing>
+                        <Box
+                          sx={{
+                            margin: '0 auto',
+                          }}
+                        >
+                          <Typography variant="h6">{data.name}</Typography>
+                        </Box>
+                      </CardActions>
+                      <CardMedia
+                        component="img"
+                        height="345"
+                        image={data.image}
+                        alt="Paella dish"
+                      />
+                      <CardContent>
+                        <Typography variant="body2" color={grey[500]}>
+                          This impressive paella is a perfect party dish and a
+                          fun meal to cook together with your guests. Add 1 cup
+                          of frozen peas along with the mussels, if you like.
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
         </Box>
       </Container>
     </Layout>
