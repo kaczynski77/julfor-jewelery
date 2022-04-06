@@ -38,7 +38,7 @@ export default function Header() {
           sx={{ textAlign: 'center', paddingTop: 6, paddingBottom: 3 }}
         >
           <Box>
-            <Typography>СКИДКА ПО ПРОМОКОДУ BUYNOW 5%</Typography>
+            <Typography>СКИДКА ПО ПРОМОКОДУ JUL5 5%</Typography>
           </Box>
         </Box>
         <Grid
@@ -53,7 +53,7 @@ export default function Header() {
           <Grid
             item
             sx={{
-              width: 1 / 3,
+              width: { md: 1 / 3, xs: 1 / 2 },
               display: 'flex',
               justifyContent: 'space-evenly',
               alignItems: 'center',
@@ -92,7 +92,7 @@ export default function Header() {
           <Grid
             item
             sx={{
-              width: 1 / 3,
+              width: { md: 1 / 3, xs: 1 / 2 },
               alignItems: 'center',
               justifyContent: 'center',
               display: 'flex',
