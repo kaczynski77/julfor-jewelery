@@ -35,7 +35,7 @@ export default function Home() {
         </Box>
         <Box
           sx={{
-            paddingTop: { xs: 2, xl: 3 },
+            paddingTop: { xs: 2, xl: 1 },
             textAlign: { xs: 'center', sm: 'center' },
           }}
         >
@@ -49,11 +49,11 @@ export default function Home() {
             spacing={2}
             sx={{
               justifyContent: 'space-between',
-              marginTop: 6,
+              marginTop: 3,
             }}
           >
             {categoryData.map((data) => (
-              <Grid item xs={12} sm={6} sx={{ justifyContent: 'center' }}>
+              <Grid item xs={12} lg={4} sx={{ justifyContent: 'center' }}>
                 <Link href={data.href} color="inherit">
                   <Card
                     sx={{
