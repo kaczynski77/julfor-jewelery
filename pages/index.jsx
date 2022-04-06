@@ -41,14 +41,14 @@ export default function Home() {
   return (
     <Layout>
       <Container xs={{ display: 'none' }}>
-        <Box sx={{ paddingTop: { xs: 2, xl: 6 }, textAlign: 'center' }}>
-          <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
+        <Box sx={{ paddingTop: { xs: 0, xl: 2 }, textAlign: 'center' }}>
+          <Typography variant="h6" sx={{ textTransform: 'uppercase' }}>
             украшения ручной работы
           </Typography>
         </Box>
         <Box
           sx={{
-            paddingTop: { xs: 2, xl: 1 },
+            paddingTop: { xs: 2, xl: 2 },
             textAlign: { xs: 'center', sm: 'center' },
           }}
         >
@@ -98,8 +98,9 @@ export default function Home() {
                             display: 'flex',
                             height: '100%',
                             textAlign: 'center',
-                            justifyContent: 'center',
+
                             alignItems: 'center',
+                            justifyContent: 'center',
                             opacity: '1',
                           }}
                         >
@@ -117,8 +118,8 @@ export default function Home() {
                           position: 'absolute',
                           width: '100%',
                           height: '100%',
-                          backgroundColor: indigo[800],
-                          opacity: '0.25',
+                          backgroundColor: indigo[100],
+                          opacity: '0.1',
                           zIndex: 1,
                         }}
                       ></Box>
@@ -128,6 +129,7 @@ export default function Home() {
                         height="345"
                         image={data.image}
                         alt="Paella dish"
+                        sx={{ opacity: '0.98' }}
                       />
                     </Card>
                   </Link>
