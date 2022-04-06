@@ -44,7 +44,7 @@ export default function Header() {
         <Grid
           container
           sx={{
-            marginBottom: { xs: 6, sm: 3 },
+            marginBottom: { xs: 6, sm: 3, xs: 1 },
             width: '100',
             alignItems: 'center',
             justifyContent: 'space-evenly',
