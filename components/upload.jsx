@@ -11,7 +11,7 @@ const Upload = () => {
   return (
     <>
       {posts.map((post) => (
-        <div>1</div>
+        <PostItem post={post} />
       ))}
     </>
   );
