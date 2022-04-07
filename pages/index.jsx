@@ -13,12 +13,12 @@ export default function Home() {
   return (
     <Layout>
       <Container xs={{ display: 'none' }}>
-        <Box sx={{ paddingTop: { xs: 0, xl: 8 }, textAlign: 'center' }}>
+        <Box sx={{ paddingTop: { xs: 0, xl: 5 }, textAlign: 'center' }}>
           <Typography
             variant="h3"
             sx={{
               textTransform: 'uppercase',
-              fontSize: 28,
+
               fontWeight: 'bold',
             }}
           >
@@ -27,7 +27,7 @@ export default function Home() {
         </Box>
         <Box
           sx={{
-            paddingTop: { xs: 2, xl: 1 },
+            paddingTop: { xs: 2, xl: 2 },
             textAlign: { xs: 'center', sm: 'center' },
             maxWidth: { xs: 400, sm: 680 },
             margin: '0 auto',

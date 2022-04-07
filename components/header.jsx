@@ -8,6 +8,7 @@ import {
   Link,
   CardMedia,
   Card,
+  Container,
 } from '@mui/material';
 
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -127,28 +128,29 @@ export default function Header() {
             </Typography>
           </Grid>
         </Grid>
-        <Grid
-          container
-          direction="row"
-          width={2 / 4}
-          sx={{
-            margin: '0 auto',
-            justifyContent: 'space-between',
-            display: { xs: 'none', xl: 'flex' },
-          }}
-        >
-          {linksData.map((data) => (
-            <Grid item xs="auto">
-              <Box>
-                <Link sx={{ textDecoration: 'none' }} href={data.href}>
-                  <Typography sx={{ color: 'black', fontWeight: 700 }}>
-                    {data.name}
-                  </Typography>
-                </Link>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+        <Container lg>
+          <Grid
+            container
+            direction="row"
+            sx={{
+              margin: '0',
+              justifyContent: 'space-between',
+              display: { xs: 'none', xl: 'flex' },
+            }}
+          >
+            {linksData.map((data) => (
+              <Grid item xs="auto">
+                <Box>
+                  <Link sx={{ textDecoration: 'none' }} href={data.href}>
+                    <Typography sx={{ color: 'black', fontWeight: 700 }}>
+                      {data.name}
+                    </Typography>
+                  </Link>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </Box>
     </>
   );

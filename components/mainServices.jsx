@@ -33,7 +33,7 @@ export default function MainServices() {
         }}
       >
         {servicesData.map((data) => (
-          <Grid item xs={12} lg={6}>
+          <Grid item xs={12} lg={4}>
             <Link
               sx={{
                 textDecoration: 'none',
@@ -66,7 +66,10 @@ export default function MainServices() {
                     <Typography
                       variant="h4"
                       color="white"
-                      sx={{ textTransform: 'uppercase', fontWeight: 700 }}
+                      sx={{
+                        textTransform: 'uppercase',
+                        fontWeight: 700,
+                      }}
                     >
                       {data.name}
                     </Typography>

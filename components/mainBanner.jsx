@@ -12,7 +12,7 @@ export default function MainBanner() {
   ];
   const bname = bannerData[0].name;
   return (
-    <Card sx={{ position: 'relative', marginTop: 2, marginBottom: 4 }}>
+    <Card sx={{ position: 'relative', marginTop: 4, marginBottom: 4 }}>
       <Box
         sx={{
           position: 'absolute',
@@ -35,15 +35,18 @@ export default function MainBanner() {
           {' '}
           <Box
             sx={{
-              background: 'rgba(255, 255, 255, 0.2)',
               padding: 4,
               borderRadius: '10px',
+              zIndex: 999,
             }}
           >
             <Typography
               variant="h4"
               color="white"
-              sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}
+              sx={{
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+              }}
             >
               JULFOUR SPRING COLLECTION
             </Typography>
@@ -53,6 +56,7 @@ export default function MainBanner() {
               sx={{
                 textTransform: 'uppercase',
                 fontWeight: 'bold',
+                marginTop: 2,
               }}
             >
               Новая линейка украшений
@@ -65,7 +69,7 @@ export default function MainBanner() {
               height: '100%',
               backgroundColor: indigo[800],
               opacity: '0.1',
-              zIndex: 9999,
+              zIndex: 0,
             }}
           ></Box>
         </Box>

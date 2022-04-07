@@ -70,9 +70,12 @@ export default function MainCategories() {
                     }}
                   >
                     <Typography
-                      variant="h4"
+                      variant="h5"
                       color="white"
-                      sx={{ textTransform: 'uppercase', fontWeight: 700 }}
+                      sx={{
+                        textTransform: 'uppercase',
+                        fontWeight: 700,
+                      }}
                     >
                       {data.name}
                     </Typography>
