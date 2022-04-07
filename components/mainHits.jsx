@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 export default function MainHits() {
   return (
@@ -6,6 +6,7 @@ export default function MainHits() {
       <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
         Хиты Продаж
       </Typography>
+      <Button сolor="secondary">X</Button>
     </Box>
   );
 }

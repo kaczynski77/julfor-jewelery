@@ -16,13 +16,9 @@ export default function Home() {
         <Box sx={{ paddingTop: { xs: 0, xl: 5 }, textAlign: 'center' }}>
           <Typography
             variant="h3"
-            sx={{
-              textTransform: 'uppercase',
-
-              fontWeight: 'bold',
-            }}
+            sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}
           >
-            украшения ручной работы
+            Украшения ручной работы
           </Typography>
         </Box>
         <Box
