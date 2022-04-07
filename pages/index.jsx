@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <Layout>
       <Container xs={{ display: 'none' }}>
-        <Box sx={{ paddingTop: { xs: 0, xl: 4 }, textAlign: 'center' }}>
-          <Typography variant="h4" sx={{ textTransform: 'uppercase' }}>
+        <Box sx={{ paddingTop: { xs: 0, xl: 8 }, textAlign: 'center' }}>
+          <Typography variant="h3" sx={{ textTransform: 'uppercase' }}>
             украшения ручной работы
           </Typography>
         </Box>
@@ -23,7 +23,10 @@ export default function Home() {
             textAlign: { xs: 'center', sm: 'center' },
           }}
         >
-          <Typography sx={{ color: grey[500] }} variant="overline">
+          <Typography
+            sx={{ color: grey[900], fontSize: 16 }}
+            variant="overline"
+          >
             Наши украшения раскрывают женственность и привлекательность Для
             глубоких, чувственных, ярких и нежных
           </Typography>

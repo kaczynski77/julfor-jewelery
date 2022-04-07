@@ -107,7 +107,7 @@ export default function Header() {
             <Typography variant="h1" sx={{ fontSize: 70, fontWeight: 700 }}>
               JULFOUR
             </Typography>
-            <Typography variant="h2" sx={{ fontWeight: 700 }}>
+            <Typography variant="h1" sx={{ fontWeight: 700, fontSize: 54 }}>
               JEWELRY
             </Typography>
           </Grid>
@@ -141,12 +141,9 @@ export default function Header() {
             <Grid item xs="auto">
               <Box>
                 <Link sx={{ textDecoration: 'none' }} href={data.href}>
-                  <Button
-                    variant="outlined"
-                    sx={{ border: '1px solid', color: 'black' }}
-                  >
+                  <Typography sx={{ color: 'black', fontWeight: 700 }}>
                     {data.name}
-                  </Button>
+                  </Typography>
                 </Link>
               </Box>
             </Grid>

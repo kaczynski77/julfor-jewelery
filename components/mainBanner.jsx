@@ -33,7 +33,13 @@ export default function MainBanner() {
           }}
         >
           {' '}
-          <Box>
+          <Box
+            sx={{
+              background: 'rgba(255, 255, 255, 0.2)',
+              padding: 4,
+              borderRadius: '10px',
+            }}
+          >
             <Typography
               variant="h4"
               color="white"
@@ -44,7 +50,10 @@ export default function MainBanner() {
             <Typography
               variant="h5"
               color="white"
-              sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}
+              sx={{
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+              }}
             >
               Новая линейка украшений
             </Typography>

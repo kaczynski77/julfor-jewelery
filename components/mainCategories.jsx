@@ -62,13 +62,21 @@ export default function MainCategories() {
                     opacity: '1',
                   }}
                 >
-                  <Typography
-                    variant="h4"
-                    color="white"
-                    sx={{ textTransform: 'uppercase', fontWeight: 700 }}
+                  <Box
+                    sx={{
+                      borderRadius: '10px',
+                      paddingLeft: 2,
+                      paddingRight: 2,
+                    }}
                   >
-                    {data.name}
-                  </Typography>
+                    <Typography
+                      variant="h4"
+                      color="white"
+                      sx={{ textTransform: 'uppercase', fontWeight: 700 }}
+                    >
+                      {data.name}
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
 
