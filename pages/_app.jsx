@@ -1,6 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-
 import { orange, purple } from '@mui/material/colors';
 
 const theme = createTheme({
