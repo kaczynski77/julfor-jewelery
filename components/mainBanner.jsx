@@ -37,14 +37,14 @@ export default function MainBanner() {
             <Typography
               variant="h4"
               color="white"
-              sx={{ textTransform: 'uppercase' }}
+              sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}
             >
               JULFOUR SPRING COLLECTION
             </Typography>
             <Typography
               variant="h5"
               color="white"
-              sx={{ textTransform: 'uppercase' }}
+              sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}
             >
               Новая линейка украшений
             </Typography>

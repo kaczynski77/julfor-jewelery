@@ -52,7 +52,7 @@ export default function Header() {
             marginBottom: { xs: 0, sm: 3, xl: 0 },
             width: '100',
             alignItems: 'center',
-            justifyContent: 'space-evenly',
+            justifyContent: 'center',
           }}
         >
           <Grid
@@ -60,11 +60,11 @@ export default function Header() {
             sx={{
               width: { md: 1 / 3, xs: 1 / 2 },
               display: 'flex',
-              justifyContent: 'space-evenly',
+              justifyContent: 'center',
               alignItems: 'center',
             }}
           >
-            <Box>
+            <Box sx={{ marginRight: 6 }}>
               <CardMedia
                 component="img"
                 height="25"
@@ -72,7 +72,7 @@ export default function Header() {
                 src="/./images/icon-tg.svg"
               />
             </Box>
-            <Box>
+            <Box sx={{ marginRight: 6 }}>
               <CardMedia
                 component="img"
                 height="25"
@@ -104,8 +104,12 @@ export default function Header() {
               order: { xs: '3', md: '0' },
             }}
           >
-            <Typography variant="h3">JULFOUR</Typography>
-            <Typography variant="h5">JEWELRY</Typography>
+            <Typography variant="h1" sx={{ fontSize: 70, fontWeight: 700 }}>
+              JULFOUR
+            </Typography>
+            <Typography variant="h2" sx={{ fontWeight: 700 }}>
+              JEWELRY
+            </Typography>
           </Grid>
 
           <Grid
@@ -117,16 +121,16 @@ export default function Header() {
               display: 'flex',
             }}
           >
-            <Box sx={{ display: 'flex' }}>
-              <PhoneIcon sx={{ height: '25px' }} />
-              <Typography sx={{ marginLeft: 1 }}>+7 (995) 777-7777</Typography>
-            </Box>
+            <PhoneIcon sx={{ height: '25px' }} />
+            <Typography sx={{ marginLeft: 2, fontWeight: 700 }}>
+              +7 (995) 777-7777
+            </Typography>
           </Grid>
         </Grid>
         <Grid
           container
           direction="row"
-          width={3 / 4}
+          width={2 / 4}
           sx={{
             margin: '0 auto',
             justifyContent: 'space-between',
@@ -137,7 +141,12 @@ export default function Header() {
             <Grid item xs="auto">
               <Box>
                 <Link sx={{ textDecoration: 'none' }} href={data.href}>
-                  <Button>{data.name}</Button>
+                  <Button
+                    variant="outlined"
+                    sx={{ border: '1px solid', color: 'black' }}
+                  >
+                    {data.name}
+                  </Button>
                 </Link>
               </Box>
             </Grid>
