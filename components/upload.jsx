@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useState } from 'react';
-import PostItem from './postItem';
+import PostForm from './PostForm';
 import PostList from './postList';
 
 const Upload = () => {
@@ -17,30 +17,14 @@ const Upload = () => {
     { id: 3, title: 'Javascript 3', body: 'Description' },
   ]);
 
-  const [post, setPost] = useState({ title: '', body: '' });
-
-  const addNewPost = (e) => {
-    e.preventDefault();
-    setPosts([...posts, { ...post, id: Date.now() }]);
-    setPost({ title: '', body: '' });
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost]);
   };
 
   return (
     <>
       <PostList posts={posts}></PostList>
-      <Input
-        type="text"
-        onChange={(e) => setPost({ ...post, title: e.target.value })}
-        placeholder="Title"
-        value={post.title}
-      />
-      <Input
-        type="text"
-        onChange={(e) => setPost({ ...post, body: e.target.value })}
-        placeholder="Description"
-        value={post.body}
-      />
-      <Button onClick={addNewPost}>+</Button>
+      <PostForm create={createPost} />
     </>
   );
 };
