@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import PostItem from './postItem';
+import PostList from './postList';
 
 const Upload = () => {
   const [posts, setPosts] = useState([
@@ -16,34 +17,28 @@ const Upload = () => {
     { id: 3, title: 'Javascript 3', body: 'Description' },
   ]);
 
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [post, setPost] = useState({ title: '', body: '' });
+
   const addNewPost = (e) => {
     e.preventDefault();
-    const newPost = {
-      id: Date.now(),
-      title,
-      body,
-    };
-    setPosts([...posts, newPost]);
+    setPosts([...posts, { ...post, id: Date.now() }]);
+    setPost({ title: '', body: '' });
   };
 
   return (
     <>
-      {posts.map((post) => (
-        <PostItem post={post} />
-      ))}
+      <PostList posts={posts}></PostList>
       <Input
         type="text"
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setPost({ ...post, title: e.target.value })}
         placeholder="Title"
-        value={title}
+        value={post.title}
       />
       <Input
         type="text"
-        onChange={(e) => setBody(e.target.value)}
+        onChange={(e) => setPost({ ...post, body: e.target.value })}
         placeholder="Description"
-        value={body}
+        value={post.body}
       />
       <Button onClick={addNewPost}>+</Button>
     </>

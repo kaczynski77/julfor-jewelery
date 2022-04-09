@@ -13,7 +13,7 @@ const PostItem = (props) => {
     >
       <Paper sx={{ width: 1 / 2, margin: '0 auto' }}>
         <Typography component="h1" variant="h5">
-          {props.post.id} {props.post.title}
+          {props.number} {props.post.title}
         </Typography>
         <Typography component="p" variant="h6">
           {props.post.body}
