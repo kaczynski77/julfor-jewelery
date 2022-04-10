@@ -1,7 +1,7 @@
 import { Box, Button, Paper, Typography } from '@mui/material';
 
 const PostItem = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <Box
       sx={{
@@ -19,7 +19,9 @@ const PostItem = (props) => {
           {props.post.body}
         </Typography>
       </Paper>
-      <Button variant="contained">Delete</Button>
+      <Button onClick={() => props.remove(props.post)} variant="contained">
+        Delete
+      </Button>
     </Box>
   );
 };

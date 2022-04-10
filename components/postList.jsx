@@ -1,9 +1,16 @@
-import { Typography } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 import PostItem from './postItem';
 
-const PostList = ({ posts, title }) => {
+const PostList = ({ posts, title, remove }) => {
   return (
-    <div>
+    <Paper
+      elevation={1}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
       <Typography
         variant="h3"
         component="h1"
@@ -12,9 +19,14 @@ const PostList = ({ posts, title }) => {
         {title}
       </Typography>
       {posts.map((post, index) => (
-        <PostItem number={index + 1} key={post.id} post={post} />
+        <PostItem
+          remove={remove}
+          number={index + 1}
+          key={post.id}
+          post={post}
+        />
       ))}
-    </div>
+    </Paper>
   );
 };
 

@@ -4,6 +4,7 @@ import {
   Container,
   Input,
   Paper,
+  Select,
   Typography,
 } from '@mui/material';
 import { useState } from 'react';
@@ -21,10 +22,38 @@ const Upload = () => {
     setPosts([...posts, newPost]);
   };
 
+  const removePost = (post) => {
+    setPosts(posts.filter((p) => p.id !== post.id));
+  };
+
   return (
     <>
-      <PostList posts={posts}></PostList>
-      <PostForm create={createPost} />
+      <Box sx={{ marginBottom: 2, textAlign: 'center' }}>
+        <Typography variant="h6">Add</Typography>
+        <PostForm create={createPost} />
+      </Box>
+      <Box sx={{ marginBottom: 2, textAlign: 'center' }}>
+        <Select fullWidth name="" id=""></Select>
+      </Box>
+      {posts.length !== 0 ? (
+        <PostList remove={removePost} posts={posts} />
+      ) : (
+        <Box>
+          <Typography
+            variant="h3"
+            sx={{
+              textAlign: 'center',
+              marginTop: 10,
+              textTransform: 'uppercase',
+            }}
+          >
+            No posts found
+          </Typography>
+          <Typography variant="h4" sx={{ textAlign: 'center', marginTop: 2 }}>
+            please add a post using the form above
+          </Typography>
+        </Box>
+      )}
     </>
   );
 };
