@@ -31,6 +31,8 @@ const Upload = () => {
 
   const [selectedSort, setSelectedSort] = useState('');
 
+  const defaultValue = 'Sort by';
+
   const sortPosts = (sort) => {
     setSelectedSort(sort);
     console.log(sort);
@@ -44,8 +46,10 @@ const Upload = () => {
       </Box>
       <Box sx={{ marginBottom: 2 }}>
         <FormControl fullWidth>
+          <InputLabel variant="standard">{defaultValue}</InputLabel>
           <MySelect
-            defaultValue="Сортировка"
+            value={selectedSort}
+            onChange={sortPosts}
             options={[
               { value: 'title', name: 'Title' },
               { value: 'body', name: 'Description' },

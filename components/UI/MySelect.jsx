@@ -1,23 +1,18 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
+import { NativeSelect } from '@mui/material';
 
-const MySelect = ({ options, defaultValue }) => {
-  console.log(defaultValue);
-  const [sort, setSort] = useState('');
-  const handleChange = (event) => {
-    setSort(event.target.value);
-  };
-
+const MySelect = ({ options, value, onChange }) => {
   return (
     <>
-      <InputLabel>{defaultValue}</InputLabel>
-      <Select onChange={handleChange} label={defaultValue}>
+      <NativeSelect
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+      >
         {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+          <option key={option.value} value={option.value}>
             {option.name}
-          </MenuItem>
+          </option>
         ))}
-      </Select>
+      </NativeSelect>
     </>
   );
 };
