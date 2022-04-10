@@ -2,7 +2,9 @@ import {
   Box,
   Button,
   Container,
+  FormControl,
   Input,
+  InputLabel,
   Paper,
   Select,
   Typography,
@@ -27,20 +29,29 @@ const Upload = () => {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
+  const [selectedSort, setSelectedSort] = useState('');
+
+  const sortPosts = (sort) => {
+    setSelectedSort(sort);
+    console.log(sort);
+  };
+
   return (
     <>
       <Box sx={{ marginBottom: 2, textAlign: 'center' }}>
         <Typography variant="h6">Add</Typography>
         <PostForm create={createPost} />
       </Box>
-      <Box sx={{ marginBottom: 2, textAlign: 'center' }}>
-        <MySelect
-          defaultValue={'Sort by'}
-          options={[
-            { value: 'title', name: 'Title' },
-            { value: 'body', name: 'Description' },
-          ]}
-        />
+      <Box sx={{ marginBottom: 2 }}>
+        <FormControl fullWidth>
+          <MySelect
+            defaultValue="Сортировка"
+            options={[
+              { value: 'title', name: 'Title' },
+              { value: 'body', name: 'Description' },
+            ]}
+          />
+        </FormControl>
       </Box>
       {posts.length !== 0 ? (
         <PostList remove={removePost} posts={posts} />
