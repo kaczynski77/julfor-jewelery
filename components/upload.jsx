@@ -10,6 +10,7 @@ import {
 import { useState } from 'react';
 import PostForm from './PostForm';
 import PostList from './postList';
+import MySelect from './UI/Myselect';
 
 const Upload = () => {
   const [posts, setPosts] = useState([
@@ -33,7 +34,13 @@ const Upload = () => {
         <PostForm create={createPost} />
       </Box>
       <Box sx={{ marginBottom: 2, textAlign: 'center' }}>
-        <Select fullWidth name="" id=""></Select>
+        <MySelect
+          defaultValue={'Sort by'}
+          options={[
+            { value: 'title', name: 'Title' },
+            { value: 'body', name: 'Description' },
+          ]}
+        />
       </Box>
       {posts.length !== 0 ? (
         <PostList remove={removePost} posts={posts} />
