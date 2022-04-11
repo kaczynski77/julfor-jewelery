@@ -16,6 +16,7 @@ import PostForm from './PostForm';
 import PostList from './postList';
 import MyModal from './UI/MyModal/MyModal';
 import axios from 'axios';
+import PostService from '../pages/api/PostService';
 
 const Upload = () => {
   const [posts, setPosts] = useState([
@@ -38,10 +39,8 @@ const Upload = () => {
   };
 
   async function fetchPosts() {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts'
-    );
-    setPosts(response.data);
+    const posts = await PostService.getAll();
+    setPosts(posts);
   }
 
   const removePost = (post) => {
