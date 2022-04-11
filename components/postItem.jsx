@@ -12,17 +12,21 @@ const PostItem = (props) => {
         borderColor: 'primary',
       }}
     >
-      <Paper sx={{ width: 1 / 2, margin: '0 auto' }}>
-        <Typography component="h1" variant="h5">
+      <Paper sx={{ width: 1 / 2, margin: '0 auto', padding: 2 }}>
+        <Typography component="h1" variant="h6" sx={{ marginBottom: 2 }}>
           {props.number} {props.post.title}
         </Typography>
-        <Typography component="p" variant="h6">
+        <Typography component="p" variant="body" sx={{ marginBottom: 4 }}>
           {props.post.body}
         </Typography>
+        <Button
+          onClick={() => props.remove(props.post)}
+          variant="outlined"
+          fullWidth
+        >
+          Delete
+        </Button>
       </Paper>
-      <Button onClick={() => props.remove(props.post)} variant="contained">
-        Delete
-      </Button>
     </Box>
   );
 };

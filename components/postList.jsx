@@ -1,6 +1,7 @@
 import { Paper, Typography } from '@mui/material';
 import PostItem from './postItem';
-import { TransitionGroup } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Box } from '@mui/system';
 
 const PostList = ({ posts, title, remove }) => {
   if (!posts.length) {
@@ -28,16 +29,14 @@ const PostList = ({ posts, title, remove }) => {
         justifyContent: 'center',
       }}
     >
-      <TransitionGroup>
-        {posts.map((post, index) => (
-          <PostItem
-            remove={remove}
-            number={index + 1}
-            key={post.id}
-            post={post}
-          />
-        ))}
-      </TransitionGroup>
+      {posts.map((post, index) => (
+        <PostItem
+          key={post.id}
+          remove={remove}
+          number={index + 1}
+          post={post}
+        />
+      ))}
     </Paper>
   );
 };

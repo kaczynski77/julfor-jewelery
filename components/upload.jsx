@@ -9,12 +9,13 @@ import {
   Select,
   Typography,
 } from '@mui/material';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { usePosts } from './hooks/usePosts';
 import PostFilter from './PostFilter';
 import PostForm from './PostForm';
 import PostList from './postList';
 import MyModal from './UI/MyModal/MyModal';
-import MySelect from './UI/Myselect';
+import axios from 'axios';
 
 const Upload = () => {
   const [posts, setPosts] = useState([
@@ -25,34 +26,32 @@ const Upload = () => {
 
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
+  const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
-  const sortedPosts = useMemo(() => {
-    console.log('SORTED');
-    if (filter.sort) {
-      return [...posts].sort((a, b) =>
-        a[filter.sort].localeCompare(b[filter.sort])
-      );
-    }
-    return posts;
-  }, [filter.sort, posts]);
-
-  const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter((post) =>
-      post.title.toLowerCase().includes(filter.query.toLowerCase())
-    );
-  }, [filter.query, sortedPosts]);
-
-  const removePost = (post) => {
-    setPosts(posts.filter((p) => p.id !== post.id));
-  };
+  useEffect(() => {
+    console.log('USE EFFECT');
+  }, []);
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
     setModal(false);
   };
 
+  async function fetchPosts() {
+    const response = await axios.get(
+      'https://jsonplaceholder.typicode.com/posts'
+    );
+    setPosts(response.data);
+  }
+
+  const removePost = (post) => {
+    setPosts(posts.filter((p) => p.id !== post.id));
+  };
   return (
     <>
+      <Button fullWidth variant="contained" onClick={fetchPosts}>
+        Get posts
+      </Button>
       <Button fullWidth variant="outlined" onClick={() => setModal(true)}>
         Create
       </Button>
