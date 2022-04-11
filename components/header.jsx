@@ -139,7 +139,7 @@ export default function Header() {
             }}
           >
             {linksData.map((data) => (
-              <Grid item xs="auto">
+              <Grid key={data.name} item xs="auto">
                 <Box>
                   <Link sx={{ textDecoration: 'none' }} href={data.href}>
                     <Typography sx={{ color: 'black', fontWeight: 700 }}>

@@ -32,7 +32,7 @@ export default function MainCategories() {
       }}
     >
       {categoryData.map((data) => (
-        <Grid item xs={12} lg={6}>
+        <Grid key={data.name} item xs={12} lg={6}>
           <Link
             sx={{
               textDecoration: 'none',

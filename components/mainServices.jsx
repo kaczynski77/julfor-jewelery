@@ -33,7 +33,7 @@ export default function MainServices() {
         }}
       >
         {servicesData.map((data) => (
-          <Grid item xs={12} lg={4}>
+          <Grid key={data.name} item xs={12} lg={4}>
             <Link
               sx={{
                 textDecoration: 'none',
