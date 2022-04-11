@@ -35,7 +35,9 @@ const Upload = () => {
   }, [selectedSort, posts]);
 
   const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter((post) => post.title.includes(searchQuery));
+    return sortedPosts.filter((post) =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
   }, [searchQuery, sortedPosts]);
 
   const removePost = (post) => {
@@ -78,7 +80,7 @@ const Upload = () => {
           />
         </FormControl>
       </Box>
-      {posts.length !== 0 ? (
+      {sortedAndSearchedPosts.length !== 0 ? (
         <PostList remove={removePost} posts={sortedAndSearchedPosts} />
       ) : (
         <Box>
@@ -91,9 +93,6 @@ const Upload = () => {
             }}
           >
             No posts found
-          </Typography>
-          <Typography variant="h4" sx={{ textAlign: 'center', marginTop: 2 }}>
-            please add a post using the form above
           </Typography>
         </Box>
       )}
