@@ -1,5 +1,6 @@
 import { Paper, Typography } from '@mui/material';
 import PostItem from './postItem';
+import { TransitionGroup } from 'react-transition-group';
 
 const PostList = ({ posts, title, remove }) => {
   if (!posts.length) {
@@ -27,21 +28,16 @@ const PostList = ({ posts, title, remove }) => {
         justifyContent: 'center',
       }}
     >
-      <Typography
-        variant="h3"
-        component="h1"
-        sx={{ textAlign: 'center', fontWeight: 700 }}
-      >
-        {title}
-      </Typography>
-      {posts.map((post, index) => (
-        <PostItem
-          remove={remove}
-          number={index + 1}
-          key={post.id}
-          post={post}
-        />
-      ))}
+      <TransitionGroup>
+        {posts.map((post, index) => (
+          <PostItem
+            remove={remove}
+            number={index + 1}
+            key={post.id}
+            post={post}
+          />
+        ))}
+      </TransitionGroup>
     </Paper>
   );
 };

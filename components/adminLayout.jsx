@@ -30,7 +30,7 @@ const AdminLayout = ({ children }) => {
         />
       </Head>
 
-      <Container xl>
+      <Container>
         <Grid sx={{ justifyContent: 'center' }} container>
           <Grid item xs={6}>
             <Typography>Кабинет</Typography>
