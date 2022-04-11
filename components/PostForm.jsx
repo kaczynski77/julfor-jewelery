@@ -1,4 +1,4 @@
-import { Button, Input, Paper, Box, Grid } from '@mui/material';
+import { Button, Input, Paper, Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 const PostForm = ({ create }) => {

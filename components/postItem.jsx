@@ -2,6 +2,7 @@ import { Box, Button, Paper, Typography } from '@mui/material';
 
 const PostItem = (props) => {
   // console.log(props);
+
   return (
     <Box
       sx={{

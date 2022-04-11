@@ -10,6 +10,7 @@ import {
 import Head from 'next/head';
 import Footer from './footer';
 import Header from './header';
+import MyModal from './UI/MyModal/MyModal';
 import Upload from './upload';
 
 const AdminLayout = ({ children }) => {
@@ -28,6 +29,7 @@ const AdminLayout = ({ children }) => {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
       </Head>
+
       <Container xl>
         <Grid sx={{ justifyContent: 'center' }} container>
           <Grid item xs={6}>

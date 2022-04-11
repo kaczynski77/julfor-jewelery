@@ -13,6 +13,7 @@ import { useState, useMemo } from 'react';
 import PostFilter from './PostFilter';
 import PostForm from './PostForm';
 import PostList from './postList';
+import MyModal from './UI/MyModal/MyModal';
 import MySelect from './UI/Myselect';
 
 const Upload = () => {
@@ -23,6 +24,7 @@ const Upload = () => {
   ]);
 
   const [filter, setFilter] = useState({ sort: '', query: '' });
+  const [modal, setModal] = useState(false);
 
   const sortedPosts = useMemo(() => {
     console.log('SORTED');
@@ -44,35 +46,24 @@ const Upload = () => {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
-  const defaultValue = 'Sort by';
-
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
+    setModal(false);
   };
 
   return (
     <>
+      <Button fullWidth variant="outlined" onClick={() => setModal(true)}>
+        Create
+      </Button>
       <Box sx={{ marginBottom: 2, textAlign: 'center' }}>
-        <Typography variant="h6">Add</Typography>
-        <PostForm create={createPost} />
+        <MyModal visible={modal} setVisible={setModal}>
+          <PostForm create={createPost} />
+        </MyModal>
       </Box>
       <PostFilter filter={filter} setFilter={setFilter} />
-      {sortedAndSearchedPosts.length !== 0 ? (
-        <PostList remove={removePost} posts={sortedAndSearchedPosts} />
-      ) : (
-        <Box>
-          <Typography
-            variant="h3"
-            sx={{
-              textAlign: 'center',
-              marginTop: 10,
-              textTransform: 'uppercase',
-            }}
-          >
-            No posts found
-          </Typography>
-        </Box>
-      )}
+
+      <PostList remove={removePost} posts={sortedAndSearchedPosts} />
     </>
   );
 };

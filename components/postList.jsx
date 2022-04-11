@@ -2,6 +2,22 @@ import { Paper, Typography } from '@mui/material';
 import PostItem from './postItem';
 
 const PostList = ({ posts, title, remove }) => {
+  if (!posts.length) {
+    return (
+      <Box>
+        <Typography
+          variant="h3"
+          sx={{
+            textAlign: 'center',
+            marginTop: 10,
+            textTransform: 'uppercase',
+          }}
+        >
+          No posts found
+        </Typography>
+      </Box>
+    );
+  }
   return (
     <Paper
       elevation={1}
