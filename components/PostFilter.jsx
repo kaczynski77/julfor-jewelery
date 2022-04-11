@@ -1,6 +1,6 @@
 import { Box, FormControl, InputLabel } from '@mui/material';
 import React from 'react';
-import MySelect from './UI/Myselect';
+import MySelect from './UI/MySelect';
 
 const PostFilter = ({ filter, setFilter }) => {
   const defaultValue = 'Sort by';
