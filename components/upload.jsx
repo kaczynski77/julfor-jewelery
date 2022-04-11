@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useState, useMemo } from 'react';
+import PostFilter from './PostFilter';
 import PostForm from './PostForm';
 import PostList from './postList';
 import MySelect from './UI/Myselect';
@@ -21,24 +22,23 @@ const Upload = () => {
     { id: 3, title: 'Javascript 3', body: 'Bescription' },
   ]);
 
-  const [selectedSort, setSelectedSort] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [filter, setFilter] = useState({ sort: '', query: '' });
 
   const sortedPosts = useMemo(() => {
     console.log('SORTED');
-    if (selectedSort) {
+    if (filter.sort) {
       return [...posts].sort((a, b) =>
-        a[selectedSort].localeCompare(b[selectedSort])
+        a[filter.sort].localeCompare(b[filter.sort])
       );
     }
     return posts;
-  }, [selectedSort, posts]);
+  }, [filter.sort, posts]);
 
   const sortedAndSearchedPosts = useMemo(() => {
     return sortedPosts.filter((post) =>
-      post.title.toLowerCase().includes(searchQuery.toLowerCase())
+      post.title.toLowerCase().includes(filter.query.toLowerCase())
     );
-  }, [searchQuery, sortedPosts]);
+  }, [filter.query, sortedPosts]);
 
   const removePost = (post) => {
     setPosts(posts.filter((p) => p.id !== post.id));
@@ -49,9 +49,6 @@ const Upload = () => {
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
   };
-  const sortPosts = (sort) => {
-    setSelectedSort(sort);
-  };
 
   return (
     <>
@@ -59,27 +56,7 @@ const Upload = () => {
         <Typography variant="h6">Add</Typography>
         <PostForm create={createPost} />
       </Box>
-
-      <input
-        value={searchQuery}
-        placeholder="Search"
-        type="text"
-        onChange={(e) => setSearchQuery(e.target.value)}
-      ></input>
-
-      <Box sx={{ marginBottom: 2 }}>
-        <FormControl fullWidth>
-          <InputLabel variant="standard">{defaultValue}</InputLabel>
-          <MySelect
-            value={selectedSort}
-            onChange={sortPosts}
-            options={[
-              { value: 'title', name: 'Title' },
-              { value: 'body', name: 'Description' },
-            ]}
-          />
-        </FormControl>
-      </Box>
+      <PostFilter filter={filter} setFilter={setFilter} />
       {sortedAndSearchedPosts.length !== 0 ? (
         <PostList remove={removePost} posts={sortedAndSearchedPosts} />
       ) : (
