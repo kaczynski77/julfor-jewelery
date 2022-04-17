@@ -1,5 +1,6 @@
 import { Button, Input, Paper, Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import UploadImg from './UploadImg';
 
 const PostForm = ({ create }) => {
   const [post, setPost] = useState({ title: '', body: '' });
@@ -44,6 +45,9 @@ const PostForm = ({ create }) => {
           <Button fullWidth variant="outlined" onClick={addNewPost}>
             +
           </Button>
+        </Grid>
+        <Grid item>
+          <UploadImg />
         </Grid>
       </Grid>
     </Paper>
