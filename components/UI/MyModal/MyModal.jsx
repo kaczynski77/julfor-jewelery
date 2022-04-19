@@ -10,14 +10,7 @@ const MyModal = ({ children, visible, setVisible }) => {
 
   return (
     <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
-      <div
-        width={3 / 4}
-        height={3 / 4}
-        sx={{ padding: 4 }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {children}
-      </div>
+      <div onClick={(e) => e.stopPropagation()}>{children}</div>
     </div>
   );
 };

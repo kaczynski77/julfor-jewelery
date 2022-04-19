@@ -17,9 +17,11 @@ export default async (req, res) => {
       if (err) return reject(err);
       console.log(fields, files);
       console.log(files.file.filepath);
+
       var oldPath = files.file.filepath;
-      var newPath = `./public/uploads/${files.file.originalFilename}`;
+      var newPath = `./public/uploads/${files.file.newFilename}`;
       mv(oldPath, newPath, function (err) {});
+      console.log(newPath);
       res.status(200).json({ fields, files });
     });
   });

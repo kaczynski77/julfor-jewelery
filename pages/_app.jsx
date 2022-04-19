@@ -18,11 +18,11 @@ const theme = createTheme({
   },
 });
 
-function App({ Component }) {
+function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Component />
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

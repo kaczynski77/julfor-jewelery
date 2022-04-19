@@ -11,9 +11,18 @@ datasource db {
 }
 
 model Item {
-  id       String @id @default(cuid())
-  title    String
-  price    String
-  category String
-  image    String
+  id          Int     @id @default(autoincrement())
+  title       String
+  price       String
+  category    String
+  image       String?
+  description String
+}
+
+model Sale {
+  id            String @id @default(cuid())
+  contact_email String
+  contact_name  String
+  price         String
+  item_list     String
 }

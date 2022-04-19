@@ -13,7 +13,7 @@ import Header from './header';
 import MyModal from './UI/MyModal/MyModal';
 import Upload from './upload';
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = ({ pageProps }) => {
   return (
     <>
       <Head>
@@ -38,8 +38,8 @@ const AdminLayout = ({ children }) => {
           <Grid item xs={6} sx={{ textAlign: 'right' }}>
             <Typography>Выход</Typography>
           </Grid>
-          <Grid item xs={8}>
-            <Upload />
+          <Grid item xs={12}>
+            <Upload pageProps={pageProps} />
           </Grid>
         </Grid>
       </Container>

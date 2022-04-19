@@ -17,47 +17,27 @@ import PostList from './postList';
 import MyModal from './UI/MyModal/MyModal';
 import axios from 'axios';
 
-const Upload = () => {
-  const [posts, setPosts] = useState([
-    { id: 1, title: 'Javascript', body: 'Description' },
-    { id: 2, title: 'Javascript 2', body: 'Aescription' },
-    { id: 3, title: 'Javascript 3', body: 'Bescription' },
-  ]);
+const Upload = ({ itemList, pageProps }) => {
+  const initList = {
+    list: [...pageProps.itemList],
+  };
 
-  const [filter, setFilter] = useState({ sort: '', query: '' });
+  const [posts, setPosts] = useState(initList);
+
   const [modal, setModal] = useState(false);
-  const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
-  useEffect(() => {
-    console.log('USE EFFECT');
-  }, []);
-
-  const createPost = (newPost) => {
-    setPosts([...posts, newPost]);
-    setModal(false);
-  };
-
-  async function fetchPosts() {
-    const posts = await PostService.getAll();
-    setPosts(posts);
-  }
-
-  const removePost = (post) => {
-    setPosts(posts.filter((p) => p.id !== post.id));
-  };
   return (
     <>
       <Button fullWidth variant="outlined" onClick={() => setModal(true)}>
         Create
       </Button>
-      <Box sx={{ marginBottom: 2, textAlign: 'center' }}>
+      <Box sx={{ marginBottom: 2, textAlign: 'center', width: '100%' }}>
         <MyModal visible={modal} setVisible={setModal}>
-          <PostForm create={createPost} />
+          <PostForm />
         </MyModal>
       </Box>
-      <PostFilter filter={filter} setFilter={setFilter} />
 
-      <PostList remove={removePost} posts={sortedAndSearchedPosts} />
+      <PostList posts={posts} />
     </>
   );
 };
