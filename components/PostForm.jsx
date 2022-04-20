@@ -4,21 +4,27 @@ import React, { useState } from 'react';
 import UploadImg from './UploadImg';
 import FormControl from '@mui/material/FormControl';
 
-const PostForm = () => {
+const PostForm = ({ create }) => {
   const [post, setPost] = useState({
+    id: '',
     title: '',
     price: '',
     description: '',
+    image: null,
     category: '',
   });
 
+  const [id, setId] = useState('');
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('');
+  const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newPost = {
-      ...post,
-    };
 
-    const body = { title, price, description, category };
+    const body = { ...post };
     try {
       const response = await fetch('/api/create', {
         method: 'POST',
@@ -31,7 +37,21 @@ const PostForm = () => {
       } else {
         console.log('form submitted successfully !!!');
 
-        window.location.reload(false);
+        const responseData = await response.json();
+        setId(responseData.id);
+        console.log(id);
+        const newPost = { ...post, id: responseData.id };
+        create(newPost);
+        setPost({
+          id: '',
+          title: '',
+          price: '',
+          description: '',
+          category: '',
+        });
+        resetForm();
+
+        //window.location.reload(false);
 
         //set a success banner here
       }
@@ -40,11 +60,6 @@ const PostForm = () => {
       console.log('there was an error submitting', error);
     }
   };
-
-  const [title, setTitle] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
 
   const resetForm = () => {
     setTitle('');
@@ -90,10 +105,9 @@ const PostForm = () => {
               required
               fullWidth
               type="text"
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => setPost({ ...post, title: e.target.value })}
               placeholder="Title"
               name="title"
-              value={title}
             />
           </Grid>
 
@@ -102,10 +116,11 @@ const PostForm = () => {
               required
               fullWidth
               type="text"
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(e) =>
+                setPost({ ...post, description: e.target.value })
+              }
               placeholder="Description"
               name="description"
-              value={description}
             />
           </Grid>
           <Grid item>
@@ -113,9 +128,8 @@ const PostForm = () => {
               required
               fullWidth
               type="text"
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={(e) => setPost({ ...post, price: e.target.value })}
               placeholder="price"
-              value={price}
             />
           </Grid>
           <Grid item>
@@ -123,9 +137,8 @@ const PostForm = () => {
               required
               fullWidth
               type="text"
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={(e) => setPost({ ...post, category: e.target.value })}
               placeholder="category"
-              value={category}
             />
           </Grid>
           <Grid item>

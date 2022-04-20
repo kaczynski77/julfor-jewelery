@@ -15,13 +15,16 @@ const PostItem = ({ post }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
+      const responseData = await response.json();
       if (response.status !== 200) {
         console.log('something went wrong');
         //set an error banner here
       } else {
         console.log('form submitted successfully !!!');
-        window.location.reload(false);
+        //window.location.reload(false);
         //set a success banner here
+        setId(responseData.id);
+        console.log(id);
       }
       //check response, if success is false, dont take them to success page
     } catch (error) {

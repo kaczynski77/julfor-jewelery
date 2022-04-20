@@ -14,10 +14,9 @@ import { PrismaClient } from '@prisma/client';
 export const getServerSideProps = async () => {
   const prisma = new PrismaClient();
   const items = await prisma.item.findMany();
-  console.log(items);
+
   return { props: { items } };
 };
-
 
 export default function Home() {
   return (

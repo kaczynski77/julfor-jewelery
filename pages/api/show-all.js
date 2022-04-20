@@ -16,6 +16,7 @@ async function showAll(req, res) {
   const body = req.body;
   try {
     const itemList = await prisma.item.findMany();
+    //console.log(itemList);
     return res.status(200).json(itemList, { success: true });
   } catch (error) {
     console.error('Request error', error);
