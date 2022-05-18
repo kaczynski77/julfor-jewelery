@@ -55,6 +55,12 @@ const PostItem = ({ post }) => {
       method: 'POST',
       body,
     });
+    
+    if (response.status == 200) {
+      console.log('true')
+      const responseData = await response.json();
+      console.log(responseData)
+    }
   };
 
   return (

@@ -106,11 +106,9 @@ export default function Header() {
             }}
           >
             <Typography variant="h1" sx={{ fontSize: 70, fontWeight: 700 }}>
-              JULFOUR
+              JFR
             </Typography>
-            <Typography variant="h1" sx={{ fontWeight: 700, fontSize: 54 }}>
-              JEWELRY
-            </Typography>
+           
           </Grid>
 
           <Grid
