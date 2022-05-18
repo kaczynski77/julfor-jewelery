@@ -59,7 +59,7 @@ const PostItem = ({ post }) => {
     if (response.status == 200) {
       console.log('true')
       const responseData = await response.json();
-      console.log(responseData)
+      console.log(responseData.newPath)
     }
   };
 
