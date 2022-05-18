@@ -1,7 +1,8 @@
 import { IncomingForm } from 'formidable';
-import { promises as fs } from 'fs';
 
-var mv = require('mv');
+const fs = require('fs');
+const mv = require('mv');
+const sharp = require('sharp');
 
 export const config = {
   api: {
@@ -19,10 +20,18 @@ export default async (req, res) => {
       console.log(files.file.filepath);
 
       var oldPath = files.file.filepath;
-      var newPath = `./public/uploads/${files.file.newFilename}`;
-      mv(oldPath, newPath, function (err) {});
-      console.log(newPath);
+      var newPath = `./public/uploads/${files.file.newFilename}.png`;
+      
+      sharp(`${oldPath}`)
+      .toFormat('webp', {palette: true})
+      .resize({ width: 500 })
+      .toFile(newPath)
+      
+      //mv(oldPath, newPath, function (err) {});
+      //console.log(newPath);
       res.status(200).json({ fields, files });
     });
   });
+
+
 };

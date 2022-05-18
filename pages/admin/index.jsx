@@ -51,7 +51,7 @@ export default function Admin(pageProps) {
           console.log('something went wrong');
           //set an error banner here
         } else {
-          console.log('form submitted successfully !!!');
+          console.log('showing all from db');
 
           setPostsDb(responseData);
 
@@ -65,7 +65,6 @@ export default function Admin(pageProps) {
 
     fetchData();
   }, []);
-  console.log(postsDb);
 
   return (
     <>
