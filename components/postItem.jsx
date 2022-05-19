@@ -1,6 +1,8 @@
-import { Box, Button, Input, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import React, { useState } from 'react';
+
 import Image from 'next/image';
+
 
 
 const PostItem = ({ post }) => {
@@ -127,8 +129,13 @@ const PostItem = ({ post }) => {
       )}
 
       {post.image !== null && (
-        <Box width={1 / 4} sx={{ overflow: 'hidden' }}>
-          image
+        <Box width={1 / 4}  height={200} sx={{ overflow: 'hidden', position: 'relative' }}>
+        <Image
+    alt='Mountains'
+    src={post.image}
+    layout='fill'
+    objectFit='contain'
+  />
         </Box>
       )}
 
