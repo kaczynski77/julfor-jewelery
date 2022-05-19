@@ -36,6 +36,10 @@ export default function Admin(pageProps) {
     setPostsDb([...postsDb, newPost]);
   };
 
+  const removePost = (post) => {
+    setPostsDb(postsDb.filter(p => p.id !== post.id))
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const body = 'show-all';
@@ -121,7 +125,7 @@ export default function Admin(pageProps) {
               </MyModal>
             </Box>
 
-            <PostList posts={postsDb} />
+            <PostList remove={removePost} posts={postsDb} />
             {/*  */}
           </Grid>
         </Grid>

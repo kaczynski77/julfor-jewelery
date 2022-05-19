@@ -1,11 +1,8 @@
 import { Box, Button, Paper, Typography } from '@mui/material';
 import React, { useState } from 'react';
-
 import Image from 'next/image';
 
-
-
-const PostItem = ({ post }) => {
+const PostItem = ({ post, remove }) => {
   // console.log(props);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,6 +25,7 @@ const PostItem = ({ post }) => {
         //set a success banner here
         setId(responseData.id);
         console.log(id);
+        remove(post);
       }
       //check response, if success is false, dont take them to success page
     } catch (error) {
@@ -36,6 +34,7 @@ const PostItem = ({ post }) => {
   };
 
   const [id, setId] = useState('');
+
 
   const [uploadImage, setUploadImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
@@ -111,9 +110,17 @@ const PostItem = ({ post }) => {
         <Box width={1 / 4} sx={{ overflow: 'hidden' }}>
           <div>
             <div>
-              <Box height={2 / 5}>
+            <Box width={1 / 4}  height={200} sx={{ overflow: 'hidden', position: 'relative' }}>
                 <img src={createObjectURL} />
+                 <Image
+    alt='postimg'
+    src={'/..'.concat(post.image)}
+    layout='fill'
+    objectFit='contain'
+  />
               </Box>
+
+              
 
               <input type="file" name="uploadImage" onChange={uploadToClient} />
               <button
@@ -131,7 +138,7 @@ const PostItem = ({ post }) => {
       {post.image !== null && (
         <Box width={1 / 4}  height={200} sx={{ overflow: 'hidden', position: 'relative' }}>
         <Image
-    alt='Mountains'
+    alt='postimg'
     src={'/..'.concat(post.image)}
     layout='fill'
     objectFit='contain'

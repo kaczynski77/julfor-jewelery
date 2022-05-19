@@ -2,7 +2,7 @@ import PostItem from './postItem';
 import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 
-const PostList = ({ posts }) => {
+const PostList = ({ posts, remove }) => {
   return (
     <Box
       elevation={1}
@@ -14,7 +14,7 @@ const PostList = ({ posts }) => {
       }}
     >
       {posts.map((post, index) => (
-        <PostItem key={post.id} number={index + 1} post={post} />
+        <PostItem remove={remove} key={post.id} number={index + 1} post={post} />
       ))}
     </Box>
   );
