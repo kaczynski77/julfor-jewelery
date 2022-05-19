@@ -2,6 +2,7 @@ import { Box, Button, Input, Paper, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Image from 'next/image';
 
+
 const PostItem = ({ post }) => {
   // console.log(props);
   const handleSubmit = async (e) => {
@@ -51,6 +52,8 @@ const PostItem = ({ post }) => {
     const body = new FormData();
     console.log('file', uploadImage);
     body.append('file', uploadImage);
+    body.append('id', post.id );
+    console.log('id', post.id);
     const response = await fetch('/api/upload', {
       method: 'POST',
       body,
@@ -60,6 +63,35 @@ const PostItem = ({ post }) => {
       console.log('true')
       const responseData = await response.json();
       console.log(responseData.newPath)
+      const updateId = post.id;
+      const path = responseData.newPath;
+      const body = { updateId, path};
+      
+
+      try {
+        const response = await fetch('/api/update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        const responseData = await response.json();
+        if (response.status !== 200) {
+          console.log('something went wrong');
+          //set an error banner here
+        } else {
+          console.log('form submitted successfully !!!');
+          //window.location.reload(false);
+          //set a success banner here
+          setId(responseData.id);
+          console.log(id);
+        }
+        //check response, if success is false, dont take them to success page
+      } catch (error) {
+        console.log('there was an error submitting', error);
+      }
+
+
+     
     }
   };
 
