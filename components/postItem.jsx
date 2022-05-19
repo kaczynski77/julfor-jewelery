@@ -132,7 +132,7 @@ const PostItem = ({ post }) => {
         <Box width={1 / 4}  height={200} sx={{ overflow: 'hidden', position: 'relative' }}>
         <Image
     alt='Mountains'
-    src={post.image}
+    src={'/..'.concat(post.image)}
     layout='fill'
     objectFit='contain'
   />
