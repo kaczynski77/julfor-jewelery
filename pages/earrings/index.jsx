@@ -1,19 +1,25 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import Layout from '../../components/layout';
 import { grey } from '@mui/material/colors';
 import  prisma  from '../api/lib/db'
+import ItemCard from '../../components/ItemCard';
+import { useState } from 'react';
 
 export const getServerSideProps = async () => {
-    const itemList = await prisma.item.findMany();
+    const items = await prisma.item.findMany();
     return {
       props: {
-        itemList: {itemList},
+        listDb: items,
       },
     };
   };
-  
 
-export default function Home() {
+
+
+export default function Home({listDb}) {
+
+  
+   
     return (
       <Layout>
         <Container xs={{ display: 'none' }}>
@@ -25,23 +31,14 @@ export default function Home() {
               СЕРЬГИ
             </Typography>
           </Box>
-          <Box
-            sx={{
-              paddingTop: { xs: 2, xl: 2 },
-              textAlign: { xs: 'center', sm: 'center' },
-              maxWidth: { xs: 400, sm: 680 },
-              margin: '0 auto',
-            }}
-          >
-            <Typography
-              sx={{ color: grey[900], fontSize: 14, lineHeight: 1 }}
-              variant="overline"
-            >
-              Наши украшения раскрывают женственность и привлекательность Для
-              глубоких, чувственных, ярких и нежных
-            </Typography>
-          </Box>
+          <Grid container xs={12} direction="row">
           
+          {listDb.map(item =>
+            <Grid item xs={6} lg={3}>
+          <ItemCard key={item.id} item={item}/>
+          </Grid>
+          )}
+          </Grid>
         </Container>
       </Layout>
     );}

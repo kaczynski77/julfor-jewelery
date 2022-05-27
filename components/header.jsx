@@ -126,7 +126,7 @@ export default function Header() {
             </Typography>
           </Grid>
         </Grid>
-        <Container lg>
+        <Container>
           <Grid
             container
             direction="row"
