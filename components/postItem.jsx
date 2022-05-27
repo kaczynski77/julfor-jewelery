@@ -31,6 +31,8 @@ const PostItem = ({ post, remove }) => {
     }
   };
 
+  const [mode, setMode] = useState('show');
+
   const [id, setId] = useState(post.id);
   const [category, setCategory] = useState(post.category);
   const [description, setDescription] = useState(post.description);
@@ -144,7 +146,8 @@ const PostItem = ({ post, remove }) => {
         </Box>
       )}
 
-      <Paper sx={{ width: 2 / 5, margin: '0 auto', padding: 2 }}>
+      {mode == 'show' && (
+        <Paper sx={{ width: 2 / 5, margin: '0 auto', padding: 2 }}>
         <Typography component="h1" variant="h6" sx={{ marginBottom: 2 }}>
           {post.title}
         </Typography>
@@ -158,6 +161,30 @@ const PostItem = ({ post, remove }) => {
           {post.price}
         </Typography>
       </Paper>
+
+      )}
+
+      {mode == 'edit' && (
+        <Paper sx={{ width: 2 / 5, margin: '0 auto', padding: 2 }}>
+        <Typography component="h1" variant="h6" sx={{ marginBottom: 2 }}>
+          {post.title}
+        </Typography>
+        <Typography component="p" variant="body" sx={{ marginBottom: 4 }}>
+          {post.category}
+        </Typography>
+        <Typography component="p" variant="body" sx={{ marginBottom: 4 }}>
+          {post.description}
+        </Typography>
+        <Typography component="p" variant="body" sx={{ marginBottom: 4 }}>
+          {post.price}
+        </Typography>
+      </Paper>
+
+      )}
+
+
+
+
       <Box sx={{ width: 1 / 5 }}>
         <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
           <Button fullWidth type="submit" variant="outlined">

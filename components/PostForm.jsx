@@ -19,7 +19,7 @@ const PostForm = ({ create }) => {
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,27 +68,7 @@ const PostForm = ({ create }) => {
     setDescription('');
   };
 
-  const [uploadImage, setUploadImage] = useState(null);
-  const [createObjectURL, setCreateObjectURL] = useState(null);
 
-  const uploadToClient = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const i = event.target.files[0];
-
-      setUploadImage(i);
-      setCreateObjectURL(URL.createObjectURL(i));
-    }
-  };
-
-  const uploadToServer = async (event) => {
-    const body = new FormData();
-    console.log('file', uploadImage);
-    body.append('file', uploadImage);
-    const response = await fetch('/api/upload', {
-      method: 'POST',
-      body,
-    });
-  };
 
   return (
     <Paper elevation={10}>
