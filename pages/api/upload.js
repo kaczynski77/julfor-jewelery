@@ -23,15 +23,15 @@ export default async (req, res) => {
       var postId = fields.id;
       var oldPath = files.file.filepath;
       var newPath = `./public/uploads/${files.file.newFilename}.jpg`;
+      var dbPath = `/uploads/${files.file.newFilename}.jpg`;
       console.log(fields.id);
       sharp(`${oldPath}`)
       .toFormat('jpg', {palette: true})
       .resize({ width: 500 })
       .toFile(newPath)
-      
       //mv(oldPath, newPath, function (err) {});
-      console.log(newPath);
-      res.status(200).json({ fields, files, newPath });
+      console.log(dbPath);
+      res.status(200).json({ fields, files, dbPath });
     });
     
   });

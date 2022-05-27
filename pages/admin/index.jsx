@@ -19,10 +19,7 @@ export const getServerSideProps = async () => {
 };
 
 export default function Admin(pageProps) {
-  const router = useRouter();
-  const refreshData = () => {
-    router.replace(router.asPath);
-  };
+
 
   const initList = {
     list: [...pageProps.itemList],
@@ -39,6 +36,8 @@ export default function Admin(pageProps) {
   const removePost = (post) => {
     setPostsDb(postsDb.filter(p => p.id !== post.id))
   }
+
+
 
   useEffect(() => {
     const fetchData = async () => {

@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 const PostItem = ({ post, remove }) => {
-  // console.log(props);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const body = { id };
+    const body = {id};
     console.log(body);
 
     try {
@@ -24,7 +23,6 @@ const PostItem = ({ post, remove }) => {
         //window.location.reload(false);
         //set a success banner here
         setId(responseData.id);
-        console.log(id);
         remove(post);
       }
       //check response, if success is false, dont take them to success page
@@ -33,15 +31,22 @@ const PostItem = ({ post, remove }) => {
     }
   };
 
-  const [id, setId] = useState('');
+  const [id, setId] = useState(post.id);
+  const [category, setCategory] = useState(post.category);
+  const [description, setDescription] = useState(post.description);
+  const [image, setImage] = useState(post.image);
+  const [price, setPrice] = useState(post.price);
+  const [title, setTitle] = useState(post.title);
 
+
+  
 
   const [uploadImage, setUploadImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
 
   const uploadToClient = (event) => {
     if (event.target.files && event.target.files[0]) {
-      const i = event.target.files[0];
+      const i = event.target.files[0];65
 
       setUploadImage(i);
       setCreateObjectURL(URL.createObjectURL(i));
@@ -63,9 +68,8 @@ const PostItem = ({ post, remove }) => {
     if (response.status == 200) {
       console.log('true')
       const responseData = await response.json();
-      console.log(responseData.newPath)
       const updateId = post.id;
-      const path = responseData.newPath;
+      const path = responseData.dbPath;
       const body = { updateId, path};
       
 
@@ -83,8 +87,8 @@ const PostItem = ({ post, remove }) => {
           console.log('form submitted successfully !!!');
           //window.location.reload(false);
           //set a success banner here
-          setId(responseData.id);
-          console.log(id);
+          setImage(path);
+          console.log(image);
         }
         //check response, if success is false, dont take them to success page
       } catch (error) {
@@ -111,13 +115,7 @@ const PostItem = ({ post, remove }) => {
           <div>
             <div>
             <Box width={1 / 4}  height={200} sx={{ overflow: 'hidden', position: 'relative' }}>
-                <img src={createObjectURL} />
-                 <Image
-    alt='postimg'
-    src={'/..'.concat(post.image)}
-    layout='fill'
-    objectFit='contain'
-  />
+    
               </Box>
 
               
@@ -128,18 +126,18 @@ const PostItem = ({ post, remove }) => {
                 type="submit"
                 onClick={uploadToServer}
               >
-                Send to server
+                Сохранить 
               </button>
             </div>
           </div>
         </Box>
       )}
 
-      {post.image !== null && (
+      {image !== null && (
         <Box width={1 / 4}  height={200} sx={{ overflow: 'hidden', position: 'relative' }}>
         <Image
     alt='postimg'
-    src={'/..'.concat(post.image)}
+    src={image}
     layout='fill'
     objectFit='contain'
   />

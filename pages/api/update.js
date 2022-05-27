@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 async function updateInquiry(req, res) {
   const body = req.body;
 
- const path = body.path.substring(1);
+ const path = body.path
  console.log(path);
   try {
 
