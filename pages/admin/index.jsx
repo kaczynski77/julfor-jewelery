@@ -7,26 +7,11 @@ import PostForm from '../../components/PostForm';
 import PostList from '../../components/postList';
 import MyModal from '../../components/UI/MyModal/MyModal';
 
-export const getServerSideProps = async () => {
-  const prisma = new PrismaClient();
-  const allItems = await prisma.item.findMany();
-
-  return {
-    props: {
-      itemList: allItems,
-    },
-  };
-};
 
 export default function Admin(pageProps) {
 
 
-  const initList = {
-    list: [...pageProps.itemList],
-  };
-
   const [modal, setModal] = useState(false);
-
   const [postsDb, setPostsDb] = useState([]);
 
   const createPost = (newPost) => {
@@ -57,7 +42,7 @@ export default function Admin(pageProps) {
           console.log('showing all from db');
 
           setPostsDb(responseData);
-
+          console.log(responseData);
           //set a success banner here
         }
         //check response, if success is false, dont take them to success page
@@ -86,7 +71,7 @@ export default function Admin(pageProps) {
       </Head>
 
       <Container>
-        <Grid direction="row" sx={{ justifyContent: 'center' }} container>
+        <Grid direction="column" sx={{ justifyContent: 'center' }} container>
           <Grid item xs={12}>
             {/*  */}
             <Button
@@ -95,15 +80,15 @@ export default function Admin(pageProps) {
               onClick={() => setModal(true)}
               sx={{ marginTop: 2 }}
             >
-              Добавить товар
+              +
             </Button>
             <Grid
               direction="row"
-              sx={{ justifyContent: 'center', textAlign: 'center' }}
+              sx={{ justifyContent: 'center', textAlign: 'center',  marginTop: 2 }}
               container
             >
               <Grid item xs={2.4}>
-                <Button>Все</Button>
+                <Button variant="contained" fullWidth>Все</Button>
               </Grid>
               <Grid item xs={2.4}>
                 <Button>Колье, чокеры</Button>
