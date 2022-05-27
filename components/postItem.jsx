@@ -110,7 +110,7 @@ const PostItem = ({ post, remove }) => {
         alignItems: 'center',
       }}
     >
-      {post.image == null && (
+      {image == null && (
         <Box width={1 / 4} sx={{ overflow: 'hidden' }}>
           <div>
             <div>
