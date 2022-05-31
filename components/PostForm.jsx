@@ -14,15 +14,13 @@ const PostForm = ({ create }) => {
     category: '',
   });
 
-  const [id, setId] = useState('');
-  const [title, setTitle] = useState('');
-  const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState(null);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const resetForm = () => {
+      setPost({ ...post, title: '', price: '', description: '', category: '' });
+     
+    }
 
     const body = { ...post };
     try {
@@ -38,18 +36,11 @@ const PostForm = ({ create }) => {
         console.log('form submitted successfully !!!');
 
         const responseData = await response.json();
-        setId(responseData.id);
-        console.log(id);
+       
         const newPost = { ...post, id: responseData.id };
         create(newPost);
-        setPost({
-          id: '',
-          title: '',
-          price: '',
-          description: '',
-          category: '',
-        });
-        resetForm();
+        
+       
 
         //window.location.reload(false);
 
@@ -59,14 +50,10 @@ const PostForm = ({ create }) => {
     } catch (error) {
       console.log('there was an error submitting', error);
     }
+    resetForm();
   };
 
-  const resetForm = () => {
-    setTitle('');
-    setPrice('');
-    setCategory('');
-    setDescription('');
-  };
+  
 
 
 
@@ -85,6 +72,7 @@ const PostForm = ({ create }) => {
               required
               fullWidth
               type="text"
+              value={post.title}
               onChange={(e) => setPost({ ...post, title: e.target.value })}
               placeholder="Title"
               name="title"
@@ -96,6 +84,7 @@ const PostForm = ({ create }) => {
               required
               fullWidth
               type="text"
+              value={post.description}
               onChange={(e) =>
                 setPost({ ...post, description: e.target.value })
               }
@@ -108,6 +97,7 @@ const PostForm = ({ create }) => {
               required
               fullWidth
               type="text"
+              value={post.price}
               onChange={(e) => setPost({ ...post, price: e.target.value })}
               placeholder="price"
             />
@@ -117,6 +107,7 @@ const PostForm = ({ create }) => {
               required
               fullWidth
               type="text"
+              value={post.category}
               onChange={(e) => setPost({ ...post, category: e.target.value })}
               placeholder="category"
             />

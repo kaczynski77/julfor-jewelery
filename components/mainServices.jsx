@@ -20,9 +20,7 @@ export default function MainServices() {
   ];
   return (
     <Box sx={{ textAlign: 'center' }}>
-      <Typography variant="h5" sx={{ textTransform: 'uppercase' }}>
-        Дополнительные услуги
-      </Typography>
+      
       <Grid
         container
         spacing={2}

@@ -6,7 +6,7 @@ import { Link, Typography } from '@mui/material';
 export default function Footer() {
   return (
     <footer>
-      <Box sx={{ textAlign: 'center', marginTop: 2 }}>
+      <Box sx={{ textAlign: 'center', marginTop: 2, height: '20vh' }}>
         <Typography variant="h1">*</Typography>
       </Box>
     </footer>

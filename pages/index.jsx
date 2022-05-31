@@ -47,8 +47,8 @@ export default function Home() {
           </Typography>
         </Box>
         <MainCategories />
-        <MainBanner />
-        <MainHits />
+        {/* <MainBanner />
+        <MainHits /> */}
         <MainServices />
       </Container>
     </Layout>

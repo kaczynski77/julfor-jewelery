@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from "react";
 import Head from 'next/head';
 import {
   Button,
@@ -8,14 +9,27 @@ import {
   Link,
   CardMedia,
   Card,
+  Menu,
+  MenuItem,
   Container,
 } from '@mui/material';
 
 import PhoneIcon from '@mui/icons-material/Phone';
 
 export default function Header() {
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = anchorEl;
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
   const linksData = [
-    { name: 'Каталог', href: '/catalog' },
+
     { name: 'На заказ', href: '/custom' },
     { name: 'Реставрация', href: '/restore' },
     { name: 'Покупателям', href: '/customer' },
@@ -39,14 +53,7 @@ export default function Header() {
         />
       </Head>
       <Box>
-        <Box
-          position="static"
-          sx={{
-            textAlign: 'center',
 
-            paddingBottom: { lg: 0, xs: 2 },
-          }}
-        ></Box>
         <Grid
           container
           sx={{
@@ -108,7 +115,7 @@ export default function Header() {
             <Typography variant="h1" sx={{ fontSize: 70, fontWeight: 700 }}>
               JFR
             </Typography>
-           
+
           </Grid>
 
           <Grid
@@ -136,13 +143,48 @@ export default function Header() {
               display: { xs: 'none', xl: 'flex' },
             }}
           >
+
+            <Grid item xs="auto" onClick={handleClick}>
+              <Box>
+                <Button
+               sx={{color: 'black'}}
+                  id="basic-button"
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  
+                >
+                  Каталог
+                </Button>
+                </Box>
+                </Grid>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>Серьги</MenuItem>
+                  <MenuItem onClick={handleClose}>Колье и подвески</MenuItem>
+                  <MenuItem onClick={handleClose}>Браслеты</MenuItem>
+                  <MenuItem onClick={handleClose}>Кольца</MenuItem>
+                  <MenuItem onClick={handleClose}>Аксессуары</MenuItem>
+                  <MenuItem onClick={handleClose}>Подарочные Сертификаты</MenuItem>
+
+                </Menu>
+              
+          
+
             {linksData.map((data) => (
               <Grid key={data.name} item xs="auto">
                 <Box>
                   <Link sx={{ textDecoration: 'none' }} href={data.href}>
-                    <Typography sx={{ color: 'black', fontWeight: 700 }}>
+                    <Button sx={{color: 'black'}}>
                       {data.name}
-                    </Typography>
+                      </Button>
                   </Link>
                 </Box>
               </Grid>

@@ -15,12 +15,12 @@ export default function ItemCard({item}) {
     
 console.log(item.id);
   return ( <CardActionArea >
-   <NextLink href={`/earrings/${item.id}`} passHref>
+   <NextLink href={`/earrings/${item.slug}`} passHref>
     <CardContent>
 
     <CardMedia
                 component="img"
-                height="250"
+                height="200"
                 image={item.image}
                 alt="Paella dish"
                 sx={{ opacity: '0.98' }}

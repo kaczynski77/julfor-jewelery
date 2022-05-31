@@ -96,8 +96,6 @@ const PostItem = ({ post, remove }) => {
       } catch (error) {
         console.log('there was an error submitting', error);
       }
-
-
      
     }
   };
@@ -186,10 +184,11 @@ const PostItem = ({ post, remove }) => {
 
 
       <Box sx={{ width: 1 / 5 }}>
-        <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
-          <Button fullWidth type="submit" variant="outlined">
+      <Button fullWidth variant="outlined">
             Редактировать
           </Button>
+        <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
+         
           <Button
             color="secondary"
             fullWidth

@@ -18,9 +18,8 @@ const Layout = ({ children }) => {
         <Header />
 
         <Container
-          sx={{
-            minHeight: '80vh',
-          }}
+         
+          sx={{  minHeight: '80vh', paddingLeft: {xs: 0}, paddingRight: {xs: 0}, }}
         >
           {children}
         </Container>

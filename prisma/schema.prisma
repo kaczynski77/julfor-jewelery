@@ -17,6 +17,7 @@ model Item {
   category    String
   image       String?
   description String
+  slug String
 }
 
 model Sale {
